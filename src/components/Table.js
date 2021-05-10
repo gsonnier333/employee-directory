@@ -64,6 +64,7 @@ export default class Table extends Component {
 						<tr>
 							<th>Name</th>
 							<th>Email</th>
+							<th>Date of Birth</th>
 						</tr>
 						{people.map((person) => {
 							return (
@@ -72,6 +73,11 @@ export default class Table extends Component {
 										{person.name.first} {person.name.last}
 									</th>
 									<th>{person.email}</th>
+									<th>
+										{new Date(
+											person.dob.date
+										).toLocaleDateString()}
+									</th>
 								</tr>
 							);
 						})}
