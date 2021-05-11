@@ -15,7 +15,7 @@ export default class Table extends Component {
 	}
 
 	componentDidMount() {
-		fetch("https://randomuser.me/api/?results=30")
+		fetch("https://randomuser.me/api/?results=30&seed=baldeagles")
 			.then((res) => res.json())
 			.then((result) => {
 				let copy = Array.from(result.results); //copy the results so we can store them as two separate lists in our state instead of one list being pointed to by two different properties
@@ -90,7 +90,9 @@ export default class Table extends Component {
 					<h1>Employees:</h1>
 
 					<table>
-						<button onClick={this.unsort}>Undo sort/filter</button>
+						<button onClick={this.unsort} id="undoBtn">
+							Undo sort/filter
+						</button>
 						<tr>
 							<th>
 								Name{" "}
