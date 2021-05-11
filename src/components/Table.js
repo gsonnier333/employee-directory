@@ -15,7 +15,7 @@ export default class Table extends Component {
 	}
 
 	componentDidMount() {
-		fetch("https://randomuser.me/api/?results=30&seed=badcompany")
+		fetch("https://randomuser.me/api/?results=30")
 			.then((res) => res.json())
 			.then((result) => {
 				let copy = Array.from(result.results); //copy the results so we can store them as two separate lists in our state instead of one list being pointed to by two different properties
@@ -87,37 +87,44 @@ export default class Table extends Component {
 			console.log(people);
 			return (
 				<div>
-					<div>
-						<button onClick={this.firstSort}>
-							Sort by first name
-						</button>
-						<button onClick={this.lastSort}>
-							Sort by last name
-						</button>
-						<button onClick={this.usFilter}>
-							Show only US employees
-						</button>
-						<button onClick={this.unsort}>Undo sort/filter</button>
-					</div>
-					Employees:
+					<h1>Employees:</h1>
+
 					<table>
+						<button onClick={this.unsort}>Undo sort/filter</button>
 						<tr>
-							<th>Name</th>
+							<th>
+								Name{" "}
+								<button onClick={this.firstSort}>
+									Sort by first name
+								</button>
+								<button onClick={this.lastSort}>
+									Sort by last name
+								</button>
+							</th>
 							<th>Email</th>
+							<th>Phone</th>
 							<th>Date of Birth</th>
+							<th>
+								Location{" "}
+								<button onClick={this.usFilter}>
+									Show only US employees
+								</button>
+							</th>
 						</tr>
 						{people.map((person) => {
 							return (
 								<tr>
-									<th>
+									<td>
 										{person.name.first} {person.name.last}
-									</th>
-									<th>{person.email}</th>
-									<th>
+									</td>
+									<td>{person.email}</td>
+									<td>{person.cell}</td>
+									<td>
 										{new Date(
 											person.dob.date
 										).toLocaleDateString()}
-									</th>
+									</td>
+									<td>{person.location.country}</td>
 								</tr>
 							);
 						})}
