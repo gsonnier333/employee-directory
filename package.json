@@ -1,7 +1,7 @@
 {
   "name": "employee-directory",
   "version": "0.1.0",
-  "private": true,
+  "private": "false",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
@@ -13,9 +13,9 @@
     "web-vitals": "^1.1.1"
   },
   "scripts": {
+    "start": "react-scripts start",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -38,5 +38,5 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "https://gsonnier333.github.io/employee-directory/"
+  "homepage": "https://gsonnier333.github.io/employee-directory"
 }
